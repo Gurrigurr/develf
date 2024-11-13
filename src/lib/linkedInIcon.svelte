@@ -1,11 +1,12 @@
 <script>
-	let {size = 36, color = '#efefef'} = $props();
+	let {size = 40, color = '#efefef'} = $props();
 	let gradientId = 'linkedin-gradient';
-	let useGradient = true;
+	let useGradient = false;
 </script>
 
 {#if useGradient}
 	<svg
+		class="animate-bounce transition-transform duration-300 ease-in hover:scale-110 hover:animate-none"
 		xmlns="http://www.w3.org/2000/svg"
 		width={size}
 		height={size}
@@ -16,8 +17,8 @@
 		<!-- Define the gradient colors in defs -->
 		<defs>
 			<linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-				<stop offset="0%" style="stop-color: #0067C0; stop-opacity: 0.8" />
-				<stop offset="100%" style="stop-color: #259cfe; stop-opacity: 0.5" />
+				<stop offset="0%" style="stop-color: #0067C0; stop-opacity: 1" />
+				<stop offset="100%" style="stop-color: #0ea5e9; stop-opacity: 1" />
 			</linearGradient>
 		</defs>
 
@@ -43,10 +44,7 @@
 {/if}
 
 <style>
-	svg {
-		transition: transform 0.2s ease;
-	}
-	svg:hover {
-		transform: scale(1.1);
+	.animate-bounce {
+		animation: bounce 1.5s infinite;
 	}
 </style>
